@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'login.dart';
 import 'password.dart';
+import 'main2.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF1E1E1E),
         scaffoldBackgroundColor: Color(0xFF1E1E1E),
       ),
-      home: password(),
+      home: main2(),
     );
   }
 }
