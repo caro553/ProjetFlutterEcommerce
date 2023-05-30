@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/salePage.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'login.dart';
 import 'password.dart';
 import 'main2.dart';
+import 'login.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    theme: ThemeData.light().copyWith(
+      primaryColor: Colors.white,
+      scaffoldBackgroundColor: Colors.white,
+    ),
+    initialRoute: '/',
+    routes: {
+      '/': (context) => SignUpPage(),
+      '/login': (context) => login(),
+      '/main2': (context) => SalePage(),
+      '/password': (context) => password(),
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,11 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Color(0xFF1E1E1E),
-        scaffoldBackgroundColor: Color(0xFF1E1E1E),
-      ),
-      home: main2(),
+      home: login(),
     );
   }
 }
@@ -27,9 +37,11 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // change l'arrière-plan en blanc
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text('Sign Up', style: TextStyle(color: Colors.black)),
         centerTitle: true,
+        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -39,9 +51,10 @@ class SignUpPage extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 labelText: 'Name',
+                labelStyle: TextStyle(color: Colors.black),
                 hintText: 'Enter your name',
-                fillColor: Colors.white,
                 filled: true,
+                fillColor: Colors.grey[200],
                 border: OutlineInputBorder(),
               ),
             ),
@@ -49,9 +62,10 @@ class SignUpPage extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 labelText: 'Email',
+                labelStyle: TextStyle(color: Colors.black),
                 hintText: 'Enter your email',
-                fillColor: Colors.white,
                 filled: true,
+                fillColor: Colors.grey[200],
                 border: OutlineInputBorder(),
               ),
               keyboardType: TextInputType.emailAddress,
@@ -60,39 +74,52 @@ class SignUpPage extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 labelText: 'Password',
+                labelStyle: TextStyle(color: Colors.black),
                 hintText: 'Enter your password',
-                fillColor: Colors.white,
                 filled: true,
+                fillColor: Colors.grey[200],
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/main2');
+              },
               child: Text('Sign Up'),
-            ),
-            SizedBox(height: 10),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                'I already have an account',
-                style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                minimumSize: Size(
+                    double.infinity, 50), // pour rendre le bouton plus large
               ),
             ),
             SizedBox(height: 10),
-            Text("Ou se connecter avec"),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              },
+              child: Text(
+                'I already have an account',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            SizedBox(height: 10),
+            Text("Ou se connecter avec", style: TextStyle(color: Colors.black)),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(MdiIcons.google, color: Colors.white),
+                  icon: Icon(MdiIcons.google, color: Colors.black),
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(MdiIcons.facebook, color: Colors.white),
+                  icon: Icon(MdiIcons.facebook, color: Colors.black),
                 ),
               ],
             ),
