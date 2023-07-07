@@ -14,7 +14,6 @@ Bienvenue dans ce projet d'application e-commerce hybride développé avec Flutt
 Ce projet utilise les technologies et outils suivants :
 - **Flutter :** un framework UI pour créer des applications mobiles natives pour iOS, Android et le Web à partir d'une seule base de code.
 - **Dart :** un langage de programmation optimisé pour le développement d'applications multiplateformes.
-- **Firebase :** une plateforme de développement d'applications mobiles pour le stockage des données, l'authentification et d'autres services backend.
 
 ## Installation et exécution
 Pour installer et exécuter cette application sur votre machine, veuillez suivre les étapes suivantes :
